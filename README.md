@@ -93,6 +93,49 @@ which is the NumPy array containing 50 equally spaced numbers between 1 and 100 
 ```python
 np.eye(n)
 ```
+## Creating NumPy Array: Generating random data
+
+We can generate random distribution of data. NumPy has built-in random library which contains various kinds of random distributions.
+
+- ### .rand
+  
+
+  We can give a shape to the array and the array with the given shape will be populated with random data between **0 and 1** (1 is excluded) in a uniform distribution. 
+
+  Uniform distribution just means that each number between **0 and 1** have equal probabilities to appear in this distribution.
+
+  ```
+  np.random.rand(shape)
+  ```
+Shape can be a single number or a matrix (not in tuples here.)
+
+- ### .randn
+  
+  Return samples from a standard normal distribution. The mean is at zero. And probability decreases sideways. So it will obviously contain negative numbers and also numbers close to zero is more likely to be present in the distribution.
+
+    ```
+  np.random.randn(shape)
+  ```
+- ### .randint
+
+```
+np.random.randint(low,high,size)
+```
+
+This will return ***'size'*** number of random **intergers** between *low* and *high*. (*high* is excluded)
+
+*size* can be a shape.
+
+## seed
+
+We can choose a set of random data by giving a seed number. The data will still be random but seed number can act as a label for that set of data.
+
+```
+np.random.seed(42)
+np.random.rand(4)
+```
+Gives same set of data  
+*array([0.37454012, 0.95071431, 0.73199394, 0.59865848])* everytime. So we can repeat the set of data using this.
 
 ## Useful attributes and methods
 
@@ -138,6 +181,7 @@ Returns the **index postion** of the maximum and minimum value.
   arr.shape()
   ```
   Returns the shape of the array which is the order of the matrix in the form of a tuple.
+
   # Indexing and Selection
 
   Indexing and slicing of NumPy arrays can be performed in the same way as that of a python list.
