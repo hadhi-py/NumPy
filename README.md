@@ -138,3 +138,93 @@ Returns the **index postion** of the maximum and minimum value.
   arr.shape()
   ```
   Returns the shape of the array which is the order of the matrix in the form of a tuple.
+  # Indexing and Selection
+
+  Indexing and slicing of NumPy arrays can be performed in the same way as that of a python list.
+
+  ```python
+    my_arr = np.arange(25)
+    
+    arr[3]
+
+    arr[:5]
+
+    arr[4:]
+  ```
+Returns
+  ```
+    array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 16,17, 18, 19, 20, 21, 22, 23, 24])
+
+    3
+
+    array([0, 1, 2, 3, 4])
+
+    array([ 4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24])
+  ```
+
+  - ### Broadcasting
+
+```
+  arr[:4] = 99
+```
+
+Now ***arr*** becomes
+
+```python
+array([99, 99, 99, 99,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21, 22, 23, 24])
+```
+
+First 4 elements became 99. In other words 99 was broadcasted.
+
+- ### Slicing
+  
+```
+slice_of_arr = arr[:5]
+```
+slice_of_arr :
+```
+array([0, 1, 2, 3, 4])
+```
+```
+slice_of_arr[:] = 99
+```
+slice_of_arr :
+```
+array([99, 99, 99, 99, 99])
+```
+
+Now, ***arr*** becomes
+```
+array([99, 99, 99, 99, 99,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21, 22, 23, 24])
+```
+
+Because, ***slice_of_arr*** is like a pointer to the slice of the array **arr**. So changes will be reflected.
+
+## 2-Dimensional Arrays
+
+```
+arr_2d = np.array(  [[5,10,15],
+                    [20,25,30],
+                    [25,40,45]])
+```
+
+```
+arr_2d[1]
+```
+
+Returns second row - **[20,25,30]**
+
+```
+arr_2d[1,2]
+```
+
+Returns **30** which is the third item in the second row.
+
+To select and return **( [10,15],
+                      [25,30] )**
+
+```
+arr_2d[:2,1:]
+```
